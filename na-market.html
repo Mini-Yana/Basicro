@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>鲸鲸跃 · 北美市场</title>
+<link rel="stylesheet" href="site.css">
+<script>
+(function(){
+  try{
+    var toggle=document.getElementById('navToggle'),
+        menu=document.getElementById('navMenu');
+    if(toggle&&menu){
+      toggle.addEventListener('click',function(){
+        var o=menu.classList.toggle('open');
+        toggle.classList.toggle('active',o);
+        toggle.setAttribute('aria-expanded',o);
+        document.documentElement.style.overflow=o?'hidden':'';
+      });
+      menu.addEventListener('click',function(e){
+        if(e.target.tagName==='A'){
+          menu.classList.remove('open');
+          toggle.classList.remove('active');
+          toggle.setAttribute('aria-expanded','false');
+          document.documentElement.style.overflow='';
+        }
+      });
+    }
+    document.querySelectorAll('a[href="#more"]').forEach(function(a){
+      a.addEventListener('click',function(e){
+        var t=document.getElementById('more');
+        if(t){
+          e.preventDefault();
+          t.scrollIntoView({behavior:'smooth'});
+        } else {
+          e.preventDefault();
+          location.href='about.html';
+        }
+      });
+    });
+    var lang=document.getElementById('navLang');
+    if(lang)lang.addEventListener('click',function(){
+      lang.textContent=lang.textContent.indexOf('EN')>-1?'中文 ▾':'EN ▾';
+    });
+    window.addEventListener('scroll',function(){
+      var nav=document.getElementById('siteNav');
+      if(nav)nav.classList.toggle('scrolled',window.scrollY>8);
+    });
+  }catch(e){}
+})();
+</script>
+</head>
+<body>
+
+<!-- 顶部导航 -->
+<nav id="siteNav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand">
+      <img src="images/main-logo.png" alt="鲸鲸跃 Logo">
+      <span>鲸鲸跃 · 国际贸易</span>
+    </a>
+    <ul id="navMenu">
+      <li><a href="index.html">主页</a></li>
+      <li><a href="brand.html">商标</a></li>
+      <li><a href="na-market.html" class="active">北美市场</a></li>
+      <li><a href="about.html">关于我们</a></li>
+      <li><a href="index.html#more">联系我们</a></li>
+    </ul>
+    <div class="nav-right">
+      <button id="navLang">EN ▾</button>
+      <button id="navToggle" aria-label="菜单">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- 页面标题 -->
+<section class="page-hero">
+  <div class="container">
+    <h1>北美市场的尝试</h1>
+    <p>Our Journey into the North American Market</p>
+  </div>
+</section>
+
+<!-- 产品展示 -->
+<section class="section">
+  <div class="container">
+    <div class="product-grid">
+
+      <!-- 产品1：原木宠物茶几 -->
+      <div class="product-card">
+        <div class="img-box">
+         
+ <img src="images/fwamazon.png" alt="木纹宠物家具" width="200" height="200" style="object-fit: cover; border-radius: 6px;">
+            <rect x="40" y="60" width="120" height="80" rx="8" fill="#d4a574"/>
+            <rect x="55" y="140" width="10" height="30" fill="#8b5e3c"/>
+            <rect x="135" y="140" width="10" height="30" fill="#8b5e3c"/>
+            <circle cx="100" cy="100" r="20" fill="#f0d9b5"/>
+            <text x="100" y="105" text-anchor="middle" font-size="10" fill="#8b5e3c">🐾</text>
+          </svg>
+        </div>
+        <div class="info">
+          <h3>Flying Whales Original Handcrafted Wooden Dog Crate</h3>
+          <div class="rating">★★★★☆ 4.1 (12 reviews)</div>
+          <div class="price">$299.99</div>
+          <p class="unavailable">Currently unavailable</p>
+          <p class="desc">Solid wood, hand-finished, designed for small pets. Fits seamlessly into modern living spaces.</p>
+        </div>
+      </div>
+
+      <!-- 产品2：木纹宠物家具 -->
+        <div class="product-card">
+        <div class="img-box">
+           <img src="images/nsmarket.png" alt="木纹宠物家具" width="200" height="200" style="object-fit: cover; border-radius: 6px;">
+
+            <rect x="40" y="60" width="120" height="80" rx="8" fill="#d4a574"/>
+            <rect x="55" y="140" width="10" height="30" fill="#8b5e3c"/>
+            <rect x="135" y="140" width="10" height="30" fill="#8b5e3c"/>
+            <circle cx="100" cy="100" r="20" fill="#f0d9b5"/>
+            <text x="100" y="105" text-anchor="middle" font-size="10" fill="#8b5e3c">🐾</text>
+          </svg>
+        </div>
+        <div class="info">
+          <h3>Bascrio Fired Wooden Dog Crate</h3>
+          <div class="rating">★★★★☆ 4.1 (12 reviews)</div>
+          <div class="price">$399.99</div>
+          <p class="unavailable">Currently unavailable</p>
+          <p class="desc">Solid wood, hand-finished, designed for small pets. Fits seamlessly into modern living spaces.</p>
+        </div>
+

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>鲸鲸跃 · 商标</title>
+<link rel="stylesheet" href="site.css">
+<script>
+(function(){
+  try{
+    var toggle=document.getElementById('navToggle'),
+        menu=document.getElementById('navMenu');
+    if(toggle&&menu){
+      toggle.addEventListener('click',function(){
+        var o=menu.classList.toggle('open');
+        toggle.classList.toggle('active',o);
+        toggle.setAttribute('aria-expanded',o);
+        document.documentElement.style.overflow=o?'hidden':'';
+      });
+      menu.addEventListener('click',function(e){
+        if(e.target.tagName==='A'){
+          menu.classList.remove('open');
+          toggle.classList.remove('active');
+          toggle.setAttribute('aria-expanded','false');
+          document.documentElement.style.overflow='';
+        }
+      });
+    }
+    document.querySelectorAll('a[href="#more"]').forEach(function(a){
+      a.addEventListener('click',function(e){
+        var t=document.getElementById('more');
+        if(t){
+          e.preventDefault();
+          t.scrollIntoView({behavior:'smooth'});
+        } else {
+          e.preventDefault();
+          location.href='about.html';
+        }
+      });
+    });
+    var lang=document.getElementById('navLang');
+    if(lang)lang.addEventListener('click',function(){
+      lang.textContent=lang.textContent.indexOf('EN')>-1?'中文 ▾':'EN ▾';
+    });
+    window.addEventListener('scroll',function(){
+      var nav=document.getElementById('siteNav');
+      if(nav)nav.classList.toggle('scrolled',window.scrollY>8);
+    });
+  }catch(e){}
+})();
+</script>
+</head>
+<body>
+
+<!-- 顶部导航 -->
+<nav id="siteNav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand">
+      <img src="images/main-logo.png" alt="鲸鲸跃 Logo">
+      <span>鲸鲸跃 · 国际贸易</span>
+    </a>
+    <ul id="navMenu">
+      <li><a href="index.html">主页</a></li>
+      <li><a href="brand.html" class="active">商标</a></li>
+      <li><a href="na-market.html">北美市场</a></li>
+      <li><a href="about.html">关于我们</a></li>
+      <li><a href="index.html#more">联系我们</a></li>
+    </ul>
+    <div class="nav-right">
+      <button id="navLang">EN ▾</button>
+      <button id="navToggle" aria-label="菜单">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- 页面标题 -->
+<section class="brand-hero">
+  <div class="container">
+    <h1>Flying Whales</h1>
+    <p>商标日志 · Brand Log</p>
+  </div>
+</section>
+
+<!-- 主商标展示 -->
+<section class="brand-showcase">
+  <div class="brand-card">
+    <div class="logo-box">
+     <section class="brand-showcase">
+  <div class="brand-card">
+    <div class="logo-box">
+      <img src="images/fw.png" alt="品牌标志" width="120" height="120" style="object-fit: contain;">
+    </div>
+  </div>
+</section>
+    </div>
+    <h3>Flying Whales 主商标</h3>
+    <p>快乐的虎鲸家族·</p>
+    <p>初版商标成图于 2015 年，设计灵感源于一只在海洋中快乐翱翔的虎鲸。</p>
+  </div>
+  <div class="brand-card">
+    <div class="logo-box">
+     <img src="images/basicro.png" alt="品牌标志" width="120" height="120" style="object-fit: contain;">
+
+    </div>
+    <h3>Basicro 子品牌</h3>
+    <p>商标设计灵感源于 鹦鹉螺 · 鲸鱼泡泡 · 黄金分割</p>
+    <p>Basicro 寓意聚焦细分领域，注重产品的细节和质量。</p>
+  </div>
+</section>
+
+<!-- 设计说明 -->
+<section class="section" style="background:#f8f8f8;">
+  <div class="container" style="max-width:800px;">
+    <h2 class="section-title">设计理念</h2>
+    <p style="text-align:center; color:#555; margin-bottom:16px;">
+      虎鲸以其强烈的家庭观念著称，我们希望这只虎鲸可以唤起你童年的美好回忆，也希望你能感受到虎鲸生活所必须的广阔海洋将我们紧密相连
+    </p>
+
+  </div>
+</section>
+
+<!-- 页脚 -->
+<footer class="site-footer">
+  <div class="footer-brand">Flying Whales <span class="dot">.</span>Ltd</div>
+  <div class="footer-sub">鲸鲸跃 · 国际贸易</div>
+  <div class="footer-social">
+    <a href="#" title="in">in</a>
+    <a href="#" title="fb">fb</a>
+  </div>
+  <div class="footer-motto">海纳百川，有容乃大；壁立千仞，无欲则刚 — 清代·林则徐 自勉联</div>
+  <div class="footer-copy">© 广州市鲸鲸跃国际贸易有限责任公司　</div>
+</footer>
+
+</body>
+</html>

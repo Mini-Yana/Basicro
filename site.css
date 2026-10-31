@@ -1,0 +1,215 @@
+/* ===== 全局重置 ===== */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 76px; }
+body {
+  font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+  color: #222; background: #fff; line-height: 1.6;
+  padding-top: 76px; /* 给固定导航留位 */
+}
+img { max-width: 100%; display: block; }
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+/* ===== 顶部导航 ===== */
+#siteNav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid #e8e8e8;
+  transition: box-shadow 0.3s;
+}
+#siteNav.scrolled { box-shadow: 0 2px 12px rgba(0,0,0,0.08); }
+.nav-inner {
+  max-width: 1200px; margin: 0 auto; padding: 0 24px;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 76px;
+}
+.nav-brand { display: flex; align-items: center; gap: 10px; }
+.nav-brand img { width: 40px; height: 40px; }
+.nav-brand span { font-size: 16px; font-weight: 600; color: #222; }
+#navMenu { display: flex; align-items: center; gap: 28px; }
+#navMenu a {
+  font-size: 15px; color: #444; padding: 6px 0;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
+}
+#navMenu a:hover { color: #3fae8f; }
+#navMenu a.active { color: #3fae8f; border-bottom-color: #3fae8f; font-weight: 600; }
+.nav-right { display: flex; align-items: center; gap: 16px; }
+#navLang {
+  background: none; border: 1px solid #ccc; border-radius: 4px;
+  padding: 4px 10px; font-size: 13px; cursor: pointer; color: #555;
+}
+#navLang:hover { border-color: #3fae8f; color: #3fae8f; }
+#navToggle {
+  display: none; background: none; border: none; cursor: pointer;
+  width: 32px; height: 32px; position: relative;
+}
+#navToggle span {
+  display: block; width: 22px; height: 2px; background: #333;
+  margin: 5px auto; transition: 0.3s; border-radius: 2px;
+}
+#navToggle.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+#navToggle.active span:nth-child(2) { opacity: 0; }
+#navToggle.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* ===== 页脚 ===== */
+.site-footer {
+  background: #fafafa; border-top: 1px solid #eee;
+  padding: 48px 24px 32px; text-align: center;
+}
+.footer-brand { font-size: 34px; font-weight: 700; letter-spacing: 1px; }
+.footer-brand .dot { color: #3fae8f; }
+.footer-sub { font-size: 14px; color: #888; margin-top: 4px; }
+.footer-social { margin-top: 16px; display: flex; justify-content: center; gap: 12px; }
+.footer-social a {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 36px; height: 36px; border-radius: 50%;
+  background: #eee; color: #555; font-size: 14px;
+  transition: 0.2s;
+}
+.footer-social a:hover { background: #3fae8f; color: #fff; }
+.footer-motto {
+  margin-top: 20px; font-size: 14px; color: #999;
+  border-top: 1px solid #eee; padding-top: 16px;
+}
+.footer-copy { margin-top: 8px; font-size: 12px; color: #aaa; }
+
+/* ===== 首页 ===== */
+.hero {
+  background: linear-gradient(135deg, #2d1b4e 0%, #4a2c6d 40%, #7b3f8f 100%);
+  color: #fff; padding: 120px 0 80px; text-align: center;
+}
+.hero h1 { font-size: 42px; font-weight: 700; margin-bottom: 12px; }
+.hero h1 span { color: #3fae8f; }
+.hero p { font-size: 16px; opacity: 0.85; max-width: 600px; margin: 0 auto; }
+.hero .en { font-size: 14px; opacity: 0.6; margin-top: 8px; font-style: italic; }
+
+.section { padding: 80px 0; }
+.section-title { font-size: 32px; font-weight: 700; text-align: center; margin-bottom: 16px; }
+.section-sub { text-align: center; color: #888; margin-bottom: 40px; }
+
+.intro-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+.intro-text p { margin-bottom: 16px; color: #555; font-size: 15px; }
+.intro-visual {
+  background: linear-gradient(135deg, #0f766e, #14b8a6);
+  border-radius: 16px; padding: 60px 40px; text-align: center; color: #fff;
+  min-height: 300px; display: flex; align-items: center; justify-content: center;
+  font-size: 18px;
+}
+
+.world-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.world-item {
+  background: #f8f8f8; border-radius: 12px; padding: 40px 24px;
+  text-align: center; transition: 0.2s;
+}
+.world-item:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
+.world-item .icon { font-size: 48px; margin-bottom: 12px; }
+.world-item h3 { font-size: 16px; margin-bottom: 8px; }
+.world-item p { font-size: 13px; color: #888; }
+
+.learn-section { background: #1a1a1a; color: #fff; }
+.learn-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+.learn-grid h2 { font-size: 28px; margin-bottom: 12px; }
+.learn-grid p { color: #aaa; font-size: 14px; margin-bottom: 16px; }
+.btn-primary {
+  display: inline-block; background: #3fae8f; color: #fff;
+  padding: 10px 28px; border-radius: 24px; font-size: 14px;
+  transition: 0.2s; border: none; cursor: pointer;
+}
+.btn-primary:hover { background: #358f76; }
+
+.contact-section { background: #fafafa; }
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+.contact-info h3 { font-size: 20px; margin-bottom: 16px; }
+.contact-info p { margin-bottom: 12px; color: #555; font-size: 14px; }
+.contact-info .icon { margin-right: 8px; }
+.contact-form label { display: block; font-size: 14px; margin-bottom: 6px; color: #555; }
+.contact-form input, .contact-form textarea {
+  width: 100%; padding: 10px 14px; border: 1px solid #ddd;
+  border-radius: 6px; font-size: 14px; margin-bottom: 16px;
+  font-family: inherit;
+}
+.contact-form input:focus, .contact-form textarea:focus {
+  outline: none; border-color: #3fae8f;
+}
+.contact-form textarea { min-height: 120px; resize: vertical; }
+
+/* ===== 关于页 ===== */
+.page-hero { padding: 80px 0 40px; text-align: center; }
+.page-hero h1 { font-size: 36px; font-weight: 700; }
+.page-hero p { color: #888; margin-top: 8px; }
+.about-block { padding: 40px 0; border-bottom: 1px solid #eee; }
+.about-block h2 { font-size: 24px; margin-bottom: 8px; }
+.about-block .en { color: #3fae8f; font-size: 14px; margin-bottom: 16px; }
+.about-block p { color: #555; font-size: 15px; margin-bottom: 12px; }
+.timeline { border-left: 3px solid #3fae8f; padding-left: 24px; margin: 20px 0; }
+.timeline-item { margin-bottom: 16px; position: relative; }
+.timeline-item::before {
+  content: ""; position: absolute; left: -29px; top: 6px;
+  width: 10px; height: 10px; border-radius: 50%;
+  background: #3fae8f;
+}
+.timeline-item .year { font-weight: 700; color: #3fae8f; }
+.quote-block {
+  border-left: 4px solid #3fae8f; padding: 16px 20px;
+  background: #f8f8f8; border-radius: 0 8px 8px 0; margin: 16px 0;
+}
+.add-image {
+  border: 2px dashed #ccc; border-radius: 8px; padding: 40px;
+  text-align: center; color: #aaa; margin: 16px 0; cursor: pointer;
+}
+
+/* ===== 商标页 ===== */
+.brand-hero { text-align: center; padding: 80px 0 40px; }
+.brand-hero h1 { font-size: 40px; }
+.brand-hero p { color: #888; margin-top: 8px; }
+.brand-showcase {
+  display: flex; justify-content: center; gap: 60px; flex-wrap: wrap;
+  padding: 40px 0;
+}
+.brand-card { text-align: center; max-width: 300px; }
+.brand-card .logo-box {
+  width: 180px; height: 180px; border-radius: 16px;
+  background: #f0f0f0; display: flex; align-items: center;
+  justify-content: center; margin: 0 auto 16px;
+}
+.brand-card h3 { font-size: 18px; margin-bottom: 8px; }
+.brand-card p { font-size: 13px; color: #888; }
+
+/* ===== 北美市场页 ===== */
+.product-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; padding: 40px 0; }
+.product-card { background: #fff; border: 1px solid #eee; border-radius: 12px; overflow: hidden; }
+.product-card .img-box {
+  background: #f8f8f8; padding: 40px; display: flex;
+  align-items: center; justify-content: center; min-height: 280px;
+}
+.product-card .info { padding: 20px 24px; }
+.product-card h3 { font-size: 16px; margin-bottom: 8px; }
+.product-card .rating { color: #f59e0b; font-size: 14px; }
+.product-card .price { font-size: 18px; font-weight: 700; margin: 8px 0; }
+.product-card .desc { font-size: 13px; color: #888; }
+.product-card .unavailable { color: #dc2626; font-size: 13px; }
+
+/* ===== 响应式 ===== */
+@media (max-width: 768px) {
+  body { padding-top: 64px; }
+  .nav-inner { height: 64px; }
+  #navToggle { display: block; }
+  #navMenu {
+    position: fixed; top: 64px; right: 0; bottom: 0;
+    width: 260px; background: #fff; flex-direction: column;
+    padding: 40px 24px; gap: 24px;
+    transform: translateX(100%); transition: transform 0.3s;
+    box-shadow: -4px 0 16px rgba(0,0,0,0.08);
+  }
+  #navMenu.open { transform: translateX(0); }
+  .nav-right { margin-left: auto; }
+  .intro-grid, .learn-grid, .contact-grid, .product-grid { grid-template-columns: 1fr; }
+  .world-grid { grid-template-columns: 1fr 1fr; }
+  .hero h1 { font-size: 30px; }
+  .hero { padding: 80px 0 60px; }
+  .section { padding: 60px 0; }
+  .footer-brand { font-size: 26px; }
+}
