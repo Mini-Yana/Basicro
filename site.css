@@ -203,6 +203,8 @@ ul { list-style: none; }
     padding: 40px 24px; gap: 24px;
     transform: translateX(100%); transition: transform 0.3s;
     box-shadow: -4px 0 16px rgba(0,0,0,0.08);
+    z-index: 999; /* 添加 z-index 确保菜单在导航栏下方 */
+    display: flex; /* 明确设置 display: flex，确保菜单在移动端也是 flex 布局 */
   }
   #navMenu.open { transform: translateX(0); }
   .nav-right { margin-left: auto; }
@@ -212,4 +214,17 @@ ul { list-style: none; }
   .hero { padding: 80px 0 60px; }
   .section { padding: 60px 0; }
   .footer-brand { font-size: 26px; }
+}
+
+/* ===== 额外优化：更小屏幕（手机） ===== */
+@media (max-width: 480px) {
+  .container { padding: 0 16px; }
+  .nav-inner { padding: 0 16px; }
+  .hero h1 { font-size: 24px; }
+  .hero p { font-size: 14px; }
+  .section-title { font-size: 26px; }
+  .world-grid { grid-template-columns: 1fr; }
+  .footer-brand { font-size: 22px; }
+  .footer-motto { font-size: 12px; }
+  #navMenu { width: 220px; }
 }
