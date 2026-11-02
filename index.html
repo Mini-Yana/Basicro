@@ -5,50 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>鲸鲸跃 · 国际贸易 | 首页</title>
 <link rel="stylesheet" href="site.css">
-<script>
-(function(){
-  try{
-    var toggle=document.getElementById('navToggle'),
-        menu=document.getElementById('navMenu');
-    if(toggle&&menu){
-      toggle.addEventListener('click',function(){
-        var o=menu.classList.toggle('open');
-        toggle.classList.toggle('active',o);
-        toggle.setAttribute('aria-expanded',o);
-        document.documentElement.style.overflow=o?'hidden':'';
-      });
-      menu.addEventListener('click',function(e){
-        if(e.target.tagName==='A'){
-          menu.classList.remove('open');
-          toggle.classList.remove('active');
-          toggle.setAttribute('aria-expanded','false');
-          document.documentElement.style.overflow='';
-        }
-      });
-    }
-    document.querySelectorAll('a[href="#more"]').forEach(function(a){
-      a.addEventListener('click',function(e){
-        var t=document.getElementById('more');
-        if(t){
-          e.preventDefault();
-          t.scrollIntoView({behavior:'smooth'});
-        } else {
-          e.preventDefault();
-          location.href='about.html';
-        }
-      });
-    });
-    var lang=document.getElementById('navLang');
-    if(lang)lang.addEventListener('click',function(){
-      lang.textContent=lang.textContent.indexOf('EN')>-1?'中文 ▾':'EN ▾';
-    });
-    window.addEventListener('scroll',function(){
-      var nav=document.getElementById('siteNav');
-      if(nav)nav.classList.toggle('scrolled',window.scrollY>8);
-    });
-  }catch(e){}
-})();
-</script>
 </head>
 <body>
 
@@ -59,6 +15,7 @@
       <img src="images/main-logo.png" alt="鲸鲸跃 Logo">
       <span>鲸鲸跃 · 国际贸易</span>
     </a>
+
     <ul id="navMenu">
       <li><a href="index.html" class="active">主页</a></li>
       <li><a href="brand.html">商标</a></li>
@@ -66,9 +23,10 @@
       <li><a href="about.html">关于我们</a></li>
       <li><a href="#more">联系我们</a></li>
     </ul>
+
     <div class="nav-right">
       <button id="navLang">EN ▾</button>
-      <button id="navToggle" aria-label="菜单">
+      <button id="navToggle" aria-label="菜单" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
     </div>
@@ -78,7 +36,7 @@
 <!-- 首屏：关于我们 -->
 <section class="hero">
   <div class="container">
-    <h1> 万物互联，音乐重构</h1>
+    <h1>万物互联，音乐重构</h1>
     <p>If everyone could connect to anything in the future, try music to solve the communication problem</p>
     <p class="en">— Flying Whales, connecting the world with love.</p>
   </div>
@@ -152,10 +110,11 @@
         <a href="about.html" class="btn-primary">我们的愿景</a>
       </div>
       <div>
-        <p style="color:#aaa;">Steve Jobs – Stanford Commencement  (June 12, 2005)​ .</p>
-        <p style="color:#aaa;">“Stay Hungry. Stay Foolish.”
-
-That's what I've always wished for myself. And now, as you graduate to begin anew, I wish that for you.</p>
+        <p style="color:#aaa;">Steve Jobs – Stanford Commencement (June 12, 2005).</p>
+        <p style="color:#aaa;">
+          "Stay Hungry. Stay Foolish."<br>
+          That's what I've always wished for myself. And now, as you graduate to begin anew, I wish that for you.
+        </p>
       </div>
     </div>
   </div>
@@ -174,13 +133,17 @@ That's what I've always wished for myself. And now, as you graduate to begin ane
         <p><span class="icon">📞</span> 电话：请直接邮件联系</p>
         <p><span class="icon">📧</span> 邮箱：fywhales@gmail.com</p>
       </div>
+
       <form class="contact-form" onsubmit="alert('感谢您的留言，我们会尽快回复！'); return false;">
         <label for="name">名字</label>
-        <input type="text" id="name" placeholder="如您有产品开发，品牌需求，商务旅游，请联系我们" required>
+        <input type="text" id="name" placeholder="如您有产品开发、品牌需求、商务合作，请联系我们" required>
+
         <label for="email">邮箱</label>
         <input type="email" id="email" value="fywhales@gmail.com" required>
+
         <label for="message">留言</label>
         <textarea id="message" placeholder="请直接邮件我们..." required></textarea>
+
         <button type="submit" class="btn-primary">提交</button>
       </form>
     </div>
@@ -192,12 +155,78 @@ That's what I've always wished for myself. And now, as you graduate to begin ane
   <div class="footer-brand">Flying Whales <span class="dot">.</span>Ltd</div>
   <div class="footer-sub">鲸鲸跃 · 国际贸易</div>
   <div class="footer-social">
-    <a href="#" title="in">in</a>
+    <a href="#" title="LinkedIn">in</a>
     <a href="#" title="微博">微博</a>
   </div>
   <div class="footer-motto">海纳百川，有容乃大；壁立千仞，无欲则刚 — 清代·林则徐 自勉联</div>
-  <div class="footer-copy">© 广州市鲸鲸跃国际贸易有限责任公司　</div>
+  <div class="footer-copy">© 广州市鲸鲸跃国际贸易有限责任公司</div>
 </footer>
 
+<!-- ✅ JS 放到 body 末尾：DOM 已就绪，手机菜单跳转才稳定 -->
+<script>
+(function () {
+  try {
+    var toggle = document.getElementById('navToggle');
+    var menu   = document.getElementById('navMenu');
+
+    /* ===== 汉堡菜单开关 ===== */
+    if (toggle && menu) {
+      toggle.addEventListener('click', function () {
+        var open = menu.classList.toggle('open');
+        toggle.classList.toggle('active', open);
+        toggle.setAttribute('aria-expanded', open);
+        document.documentElement.style.overflow = open ? 'hidden' : '';
+      });
+
+      /* 点菜单里的链接：先关菜单，再让浏览器正常跳转 */
+      menu.addEventListener('click', function (e) {
+        var a = e.target.closest('a');
+        if (!a) return;
+
+        menu.classList.remove('open');
+        toggle.classList.remove('active');
+        toggle.setAttribute('aria-expanded', 'false');
+        document.documentElement.style.overflow = '';
+
+        /* #more 在本页平滑滚动；其它链接交给浏览器默认跳转 */
+        if (a.getAttribute('href') === '#more') {
+          var t = document.getElementById('more');
+          if (t) {
+            e.preventDefault();
+            t.scrollIntoView({ behavior: 'smooth' });
+          }
+        }
+      });
+    }
+
+    /* ===== 页面其它 #more 链接（如页脚）也支持平滑滚动 ===== */
+    document.querySelectorAll('a[href="#more"]').forEach(function (a) {
+      a.addEventListener('click', function (e) {
+        var t = document.getElementById('more');
+        if (t) {
+          e.preventDefault();
+          t.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+
+    /* ===== 中英文切换（纯视觉） ===== */
+    var lang = document.getElementById('navLang');
+    if (lang) {
+      lang.addEventListener('click', function () {
+        lang.textContent = lang.textContent.indexOf('EN') > -1 ? '中文 ▾' : 'EN ▾';
+      });
+    }
+
+    /* ===== 导航滚动阴影 ===== */
+    window.addEventListener('scroll', function () {
+      var nav = document.getElementById('siteNav');
+      if (nav) nav.classList.toggle('scrolled', window.scrollY > 8);
+    });
+  } catch (e) {
+    /* 静默容错，不影响页面其它功能 */
+  }
+})();
+</script>
 </body>
 </html>
