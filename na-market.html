@@ -5,6 +5,78 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>鲸鲸跃 · 北美市场</title>
 <link rel="stylesheet" href="site.css">
+<style>
+  /* 店铺卡片 */
+  #stores .section-head { text-align: center; margin-bottom: 32px; }
+  #stores .section-head h2 { margin: 0 0 6px; font-size: 26px; }
+  #stores .section-head p { margin: 0; color: #8a8f98; font-size: 14px; letter-spacing: .5px; }
+
+  .store-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+  }
+
+  .store-card {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 20px 22px;
+    border: 1px solid #e6e8eb;
+    border-radius: 10px;
+    background: #fff;
+    text-decoration: none;
+    color: inherit;
+    transition: box-shadow .2s ease, transform .2s ease, border-color .2s ease;
+  }
+  .store-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, .08);
+    border-color: #c9ced6;
+  }
+
+  .store-logo {
+    flex: 0 0 56px;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: #f2f4f7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: 700;
+    color: #2b2f36;
+  }
+
+  .store-body { min-width: 0; }
+  .store-body h3 { margin: 0 0 4px; font-size: 18px; }
+  .store-tag { margin: 0 0 6px; font-size: 13px; color: #6b7280; }
+  .store-url {
+    margin: 0 0 8px;
+    font-size: 13px;
+    color: #9aa0a6;
+    word-break: break-all;
+  }
+  .store-btn {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 600;
+    color: #0f766e;
+  }
+
+  /* 商品卡整体可点击 */
+  .product-card .card-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+  }
+  .product-card .card-link:hover h3 { text-decoration: underline; }
+
+  @media (max-width: 768px) {
+    .store-grid { grid-template-columns: 1fr; }
+  }
+</style>
 </head>
 <body>
 
@@ -48,31 +120,69 @@
 
       <!-- 产品1：原木宠物茶几 -->
       <div class="product-card">
-        <div class="img-box">
-          <img src="images/fwamazon.png" alt="木纹宠物家具" width="200" height="200" style="object-fit: cover; border-radius: 6px;">
-        </div>
-        <div class="info">
-          <h3>Flying Whales Original Handcrafted Wooden Dog Crate</h3>
-          <div class="rating">★★★★☆ 4.1 (12 reviews)</div>
-          <div class="price">$299.99</div>
-          <p class="unavailable">Currently unavailable</p>
-          <p class="desc">Solid wood, hand-finished, designed for small pets. Fits seamlessly into modern living spaces.</p>
-        </div>
+        <a class="card-link" href="https://www.amazon.com/flyingwhales" target="_blank" rel="noopener" title="前往 Flying Whales Official 店铺">
+          <div class="img-box">
+            <img src="images/fwamazon.png" alt="木纹宠物家具" width="200" height="200" style="object-fit: cover; border-radius: 6px;">
+          </div>
+          <div class="info">
+            <h3>Flying Whales Original Handcrafted Wooden Dog Crate</h3>
+            <div class="rating">★★★★☆ 4.1 (12 reviews)</div>
+            <div class="price">$299.99</div>
+            <p class="unavailable">Currently unavailable</p>
+            <p class="desc">Solid wood, hand-finished, designed for small pets. Fits seamlessly into modern living spaces.</p>
+          </div>
+        </a>
       </div>
 
       <!-- 产品2：木纹宠物家具 -->
       <div class="product-card">
-        <div class="img-box">
-          <img src="images/nsmarket.png" alt="木纹宠物家具" width="200" height="200" style="object-fit: cover; border-radius: 6px;">
-        </div>
-        <div class="info">
-          <h3>Bascrio Fired Wooden Dog Crate</h3>
-          <div class="rating">★★★★☆ 4.1 (12 reviews)</div>
-          <div class="price">$399.99</div>
-          <p class="unavailable">Currently unavailable</p>
-          <p class="desc">Solid wood, hand-finished, designed for small pets. Fits seamlessly into modern living spaces.</p>
-        </div>
+        <a class="card-link" href="https://www.amazon.com/basicro" target="_blank" rel="noopener" title="前往 Basicro 店铺">
+          <div class="img-box">
+            <img src="images/nsmarket.png" alt="木纹宠物家具" width="200" height="200" style="object-fit: cover; border-radius: 6px;">
+          </div>
+          <div class="info">
+            <h3>Bascrio Fired Wooden Dog Crate</h3>
+            <div class="rating">★★★★☆ 4.1 (12 reviews)</div>
+            <div class="price">$399.99</div>
+            <p class="unavailable">Currently unavailable</p>
+            <p class="desc">Solid wood, hand-finished, designed for small pets. Fits seamlessly into modern living spaces.</p>
+          </div>
+        </a>
       </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== 北美市场店铺地址 ===== -->
+<section class="section" id="stores">
+  <div class="container">
+    <div class="section-head">
+      <h2>我们的北美线上店铺</h2>
+      <p>Our Stores on Amazon.com</p>
+    </div>
+
+    <div class="store-grid">
+
+      <a class="store-card" href="https://www.amazon.com/basicro" target="_blank" rel="noopener">
+        <div class="store-logo">b</div>
+        <div class="store-body">
+          <h3>Basicro</h3>
+          <p class="store-tag">木制狗笼家具 · 农舍风格端桌 · 中型犬</p>
+          <p class="store-url">https://www.amazon.com/basicro</p>
+          <span class="store-btn">进入店铺 →</span>
+        </div>
+      </a>
+
+      <a class="store-card" href="https://www.amazon.com/flyingwhales" target="_blank" rel="noopener">
+        <div class="store-logo">FW</div>
+        <div class="store-body">
+          <h3>Flying Whales Official</h3>
+          <p class="store-tag">天然实木狗窝 · 多功能宠物茶几 · 小型犬</p>
+          <p class="store-url">https://www.amazon.com/flyingwhales</p>
+          <span class="store-btn">进入店铺 →</span>
+        </div>
+      </a>
 
     </div>
   </div>
